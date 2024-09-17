@@ -22,6 +22,12 @@ public class SegmentoController {
         return segmentoService.getSegmentos();
     }
 
+    @GetMapping(path = "{id}")
+    public ResponseEntity<Segmento> getSegmentoById(@PathVariable("id") Long id) {
+    Segmento segmento = segmentoService.getSegmentoById(id);
+    return ResponseEntity.ok(segmento);
+}
+
     @PostMapping
     public ResponseEntity<Object> registrarSegmento(@RequestBody Segmento segmento) {
         return segmentoService.saveSegmento(segmento);

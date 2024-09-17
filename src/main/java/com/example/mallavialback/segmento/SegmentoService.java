@@ -31,6 +31,12 @@ public class SegmentoService {
         return this.segmentoRepository.findAll();
     }
 
+    public Segmento getSegmentoById(Long id) {
+        return segmentoRepository.findById(id)
+            .orElseThrow();
+    }
+    
+
     public ResponseEntity<Object> saveSegmento(Segmento segmento) {
         HashMap<String, Object> datos = new HashMap<>();
         

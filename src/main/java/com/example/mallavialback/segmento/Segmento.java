@@ -1,5 +1,8 @@
 package com.example.mallavialback.segmento;
 
+
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,12 +25,12 @@ public class Segmento {
     private String nombre;
 
     // Relación uno a muchos con calzadas
-    @OneToMany(mappedBy = "segmento")
+    @OneToMany(mappedBy = "segmento", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Calzada> calzadas;
 
     // Relación uno a muchos con bordillos
-    @OneToMany(mappedBy = "segmento")
+    @OneToMany(mappedBy = "segmento", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Bordillo> bordillos;
 
